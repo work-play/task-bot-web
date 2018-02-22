@@ -1,4 +1,4 @@
 class Task < ApplicationRecord
   belongs_to :user
-  has_many :goal_tasks, dependent: :destroy
+  has_many :goal_dates, dependent: :destroy
 end

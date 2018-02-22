@@ -1,0 +1,21 @@
+<h1>Hello World</h1>
+<div>
+<%= form_tag(user_tasks_path(user_id: current_user.id), method: "post") do %>
+  <p>Enter New Task:</p>
+  <%= text_field_tag(:task, :placeholder => "Master Rails5_0222") %>
+  <%= submit_tag("Create") %>
+<% end %>
+</div>
+
+<div>
+  <table>
+    <thead>
+      <tr><th>Task</th><th>Goal</th></tr>
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+      <tr><th><%=task.title%></th><th><%=task.goal_dates.first.date%></th></tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
