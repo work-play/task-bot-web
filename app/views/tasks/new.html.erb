@@ -1,16 +1,20 @@
 <h1>Hello World</h1>
 <div>
-<%= form_tag(user_tasks_path(user_id: current_user.id), method: "post") do %>
-  <p>Enter New Task:</p>
-  <%= text_field_tag(:task, :placeholder => "Master Rails5_0222") %>
-  <%= submit_tag("Create") %>
+<%= form_tag(user_tasks_path(user_id: current_user.id), method: "post", class: "form-inline") do %>
+  <div class="form-group mb-2">
+    <input type="text" readonly class="form-control-plaintext" value="Enter New Task">
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <%= text_field_tag(:task, nil, placeholder: 'Ex. Master Rails5_0222', class: "form-control") %>
+  </div>
+  <%= submit_tag("Create", class: "btn btn-primary mb-2") %>
 <% end %>
 </div>
 
 <div>
-  <table>
+  <table class='table'>
     <thead>
-      <tr><th>Task</th><th>Goal</th></tr>
+      <tr><th scope="col">Task</th><th scope="col">Goal</th></tr>
     </thead>
     <tbody>
       <% @tasks.each do |task| %>
